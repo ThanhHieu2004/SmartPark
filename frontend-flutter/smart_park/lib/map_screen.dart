@@ -22,10 +22,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Smart Park Map'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
         initialCameraPosition: const CameraPosition(
