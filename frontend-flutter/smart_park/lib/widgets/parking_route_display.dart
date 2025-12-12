@@ -1,13 +1,15 @@
-import 'a_star.dart';
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../algorithms/a_star.dart';
 
 class ParkingRouteDisplay {
-  /// Trả về list các điểm để bạn vẽ trên bản đồ
-  static List<Map<String, double>> convertPathToPoints(List<Node> path) {
-    return path
-        .map((n) => {
-              "x": n.lat,
-              "y": n.lng,
-            })
-        .toList();
+  static Polyline createRoutePolyline(List<Node> path) {
+    return Polyline(
+      polylineId: const PolylineId("route"),
+      width: 6,
+      color: Colors.blue,
+      points: path.map((n) => LatLng(n.lat, n.lng)).toList(),
+    );
   }
 }
